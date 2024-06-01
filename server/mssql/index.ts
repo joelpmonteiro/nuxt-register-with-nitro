@@ -21,7 +21,7 @@ export const mssqlConnection = async () => {
 
     return { client };
   } catch (error) {
-    console.log(error);
+    console.log("teste", error);
     throw createError({
       statusCode: 500,
       name: "Erro ao criar conta",

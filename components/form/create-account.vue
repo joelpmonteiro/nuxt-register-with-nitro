@@ -92,10 +92,11 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
   // Do something with data
 
   try {
-    await $fetch("/api/v1/create", {
+    const teste = await $fetch("/api/v1/create", {
       method: "POST",
       body: state,
     });
+    console.log(teste);
     toast.add({ title: "Conta criado com sucesso" });
   } catch (error) {
     console.log(error);

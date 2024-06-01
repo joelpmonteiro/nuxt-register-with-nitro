@@ -6,10 +6,10 @@ export const createAccount = async (event: H3Event): Promise<any> => {
     const request = await readBody(event);
 
     const connection = await mssqlConnection();
-    const procedure = connection?.client.query(
+    const procedure = connection.client.query(
       `exec cabal_tool_registerAccount ${request.id}, ${request.password}`
     );
-    return "";
+    return procedure;
   } catch (error: any) {
     console.log("asdasdsad: ", error);
     throw createError({
