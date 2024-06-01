@@ -92,12 +92,17 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
   // Do something with data
 
   try {
-    const teste = await $fetch("/api/v1/create", {
+    const data = await $fetch("/api/v1/create", {
       method: "POST",
       body: state,
     });
-    console.log(teste);
-    toast.add({ title: "Conta criado com sucesso" });
+
+    const recordset = data.recordset[0].usernum;
+    if (recordset > 0) {
+      toast.add({ title: "Conta criado com sucesso" });
+    } else {
+      throw "erro ao criar conta";
+    }
   } catch (error) {
     console.log(error);
     toast.add({ title: "Erro ao Criar conta" });
