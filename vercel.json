@@ -1,19 +1,9 @@
 {
+    "version": 2,
     "builds": [
         {
-            "src": "server/**/*.ts",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "nuxt.config.ts",
-            "use": "@nuxtjs/vercel-builder@0.23.0",
-            "config": {}
-        }
-    ],
-    "routes": [
-        {
-            "src": "/api/v1/create",
-            "dest": "/server/api/[...].ts"
+            "src": "nuxt.config.js",
+            "use": "@nuxtjs/vercel-builder"
         }
     ]
 }
